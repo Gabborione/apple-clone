@@ -1,0 +1,37 @@
+.top-menu{
+    min-width: 100vw;
+    position: absolute;
+    top:0;
+    background-color: hsla(240, 2%, 9%, 0.85);
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.55rem;
+    overflow: hidden;
+}
+
+.top-menu__item{
+    padding-inline: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    img{      
+        top:0px;
+    }
+
+    &:hover{
+        color: white;
+        transition: all 0.2s;
+    }
+    
+}
+
+.top-menu__search{
+    img{
+        position: relative;
+        top:22px;
+    }
+}
