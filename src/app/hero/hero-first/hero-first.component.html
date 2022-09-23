@@ -1,0 +1,14 @@
+<div class="hero">
+    <div [ngClass]="{ visible: logoVisible }" class="hero__logo">
+        <img
+            src="https://www.apple.com/v/iphone-14-pro/a/images/overview/hero/hero_logo__d8cdthbobp8i_large.jpg"
+            alt="iPhone 14 Pro"
+        />
+    </div>
+    <video *ngIf="videoVisible" class="hero__video" [muted]="'muted'" autoplay>
+        <source
+            src="https://www.apple.com/105/media/it/iphone-14-pro/2022/a3e991f3-071e-454c-b714-1b2319bb97a8/anim/hero/large_2x.mp4"
+            type="video/mp4"
+        />
+    </video>
+</div>

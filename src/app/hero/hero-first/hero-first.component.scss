@@ -1,0 +1,53 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1700px;
+    margin-inline: auto;
+}
+
+.hero__video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1680px;
+    object-fit: cover;
+    animation: zoom;
+    animation-duration: 3s;
+}
+
+@keyframes zoom {
+    0%   {width: 120vw}
+    100% {width: 1680px}
+}
+
+.hero__logo{
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height: 100vh;
+    top:0;
+
+    img{
+        width: 40%;
+    }
+}
+
+.visible{
+    display: flex;
+    opacity: 0%;
+    animation: fade-out;
+    animation-duration: 0.5s;
+}
+
+@keyframes fade-out {
+    0% {opacity: 100%;width: 100%;}
+    40% {opacity: 100%;
+        width: 100vw;
+    }
+
+    100% {opacity: 0%;
+        width: 120vw;}
+}
