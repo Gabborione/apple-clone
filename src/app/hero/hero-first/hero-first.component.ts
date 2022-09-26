@@ -9,7 +9,7 @@ export class HeroFirstComponent implements OnInit {
     logoVisible: boolean = false;
     videoVisible: boolean = false;
 
-    scrollY: any = 0;
+    scrollFirst: Number = 0;
 
     constructor() {}
 
@@ -33,12 +33,15 @@ export class HeroFirstComponent implements OnInit {
         console.log('Scroll Event', window.pageYOffset);
 
         if (window.pageYOffset > 900)
-            this.scrollY = window.pageYOffset * 1.7 - 1000;
+            this.scrollFirst = window.pageYOffset * 1.8 - 1000;
+        else {
+            this.scrollFirst = 0;
+        }
     }
 
-    transform() {
+    transformFirst() {
         return {
-            transform: `matrix(1, 0, 0, 1, 0, -${this.scrollY})`
+            transform: `matrix(1, 0, 0, 1, 0, -${this.scrollFirst})`
         };
     }
 }

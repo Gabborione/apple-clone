@@ -2,14 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1700px;
-    margin-inline: auto;
 }
 
 .hero__video-container{
     width:1680px;
     height:1200px;
     z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-box-shadow: inset 0px -20px 36px 10px rgba(0,0,0,0.53); 
     box-shadow: inset 0px -50px 36px 10px rgba(0,0,0,0.8);
 }
@@ -118,3 +119,90 @@
     will-change: transform;
 }
 
+.second-text{
+    margin-top: -35vh;
+    position: relative;
+    z-index: 3;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+}
+
+.second-text__text{
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top:0;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1em;
+    height: 100vh;
+    width: 800px;
+    padding-top: calc(55*0.5);
+    z-index: 3;
+    
+    * {
+        color: black;
+    }
+
+    h2{
+        font-size: 12rem;
+        line-height: 1em;
+        text-align: start;
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+
+    p{
+        font-size: 1.5rem;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .second-text__subtext{
+        font-size: 2rem;
+        font-weight: 500;
+        width: 100%;
+    }
+
+    .second-text__pricing{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 3rem;
+
+        a{
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+    }
+}
+
+.second-text__gradient{
+    position: relative;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    margin-top: -1px;
+    padding-top: 10vh;
+    z-index: 2;
+
+    img{
+        display: block;
+        width: 100%;
+    }
+
+    .second-text__gradient-reversed{  
+        position: relative;
+        margin-top: -2px;
+        transform: scaleY(-1);
+    }
+}
