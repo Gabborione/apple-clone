@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-hero-first',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class HeroFirstComponent implements OnInit {
     logoVisible: boolean = false;
     videoVisible: boolean = false;
+
+    scrollY: any = 0;
 
     constructor() {}
 
@@ -22,7 +24,21 @@ export class HeroFirstComponent implements OnInit {
             setTimeout(() => {
                 this.logoVisible = false;
                 this.videoVisible = true;
-            }, 1000);
+            }, 500);
         }, 1000);
+    }
+
+    @HostListener('window:scroll', ['$event'])
+    scrollMovement(event: Event) {
+        console.log('Scroll Event', window.pageYOffset);
+
+        if (window.pageYOffset > 900)
+            this.scrollY = window.pageYOffset * 1.7 - 1000;
+    }
+
+    transform() {
+        return {
+            transform: `matrix(1, 0, 0, 1, 0, -${this.scrollY})`
+        };
     }
 }

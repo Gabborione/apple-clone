@@ -5,10 +5,41 @@
             alt="iPhone 14 Pro"
         />
     </div>
-    <video *ngIf="videoVisible" class="hero__video" [muted]="'muted'" autoplay>
-        <source
-            src="https://www.apple.com/105/media/it/iphone-14-pro/2022/a3e991f3-071e-454c-b714-1b2319bb97a8/anim/hero/large_2x.mp4"
-            type="video/mp4"
-        />
-    </video>
+    <div class="hero__video-container">
+        <video
+            *ngIf="videoVisible"
+            class="hero__video"
+            [muted]="'muted'"
+            autoplay
+        >
+            <source
+                src="https://www.apple.com/105/media/it/iphone-14-pro/2022/a3e991f3-071e-454c-b714-1b2319bb97a8/anim/hero/large_2x.mp4"
+                type="video/mp4"
+            />
+        </video>
+    </div>
+
+    <div class="first-text">
+        <div class="first-text__text">
+            Un modo magico e innovativo di interagire con iPhone. Una nuova,
+            essenziale funzione per la sicurezza, pensata per salvare vite. Una
+            straordinaria fotocamera da 48MP per dettagli da non credere. E
+            dietro tutto questo, la potenza del più evoluto chip per smartphone.
+
+            <div
+                class="first-text__gradient will-change-transform"
+                [ngStyle]="transform()"
+            >
+                <img
+                    src="https://www.apple.com/v/iphone-14-pro/a/images/overview/hero/hero_background__c0w6qmrgcnqu_large.png"
+                    alt="first-background"
+                />
+                <img
+                    class="first-text__gradient-reversed"
+                    src="https://www.apple.com/v/iphone-14-pro/a/images/overview/hero/hero_background__c0w6qmrgcnqu_large.png"
+                    alt="second-background"
+                />
+            </div>
+        </div>
+    </div>
 </div>
