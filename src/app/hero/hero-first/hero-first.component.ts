@@ -30,8 +30,6 @@ export class HeroFirstComponent implements OnInit {
 
     @HostListener('window:scroll', ['$event'])
     scrollMovement(event: Event) {
-        console.log('Scroll Event', window.pageYOffset);
-
         if (window.pageYOffset > 900)
             this.scrollFirst = window.pageYOffset * 1.8 - 1000;
         else {
