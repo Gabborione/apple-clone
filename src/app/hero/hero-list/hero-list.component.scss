@@ -33,7 +33,7 @@
         opacity: 0;
     }
 
-    .activeImage{
+    .active-image{
         opacity: 1;     
         transition: opacity .2s ease-in; 
     }
@@ -59,7 +59,7 @@
         cursor: pointer;
     }
 
-    .active{
+    .active-text{
         color: white;
         cursor: default;
         pointer-events:none;

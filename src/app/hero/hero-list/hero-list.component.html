@@ -6,9 +6,9 @@
                 type="video/mp4"
             />
         </video>
-        <img class="activeImage" [src]="prevImage?.url" />
+        <img class="active-image" [src]="prevImage?.url" />
         <img
-            [ngClass]="imageIsActive ? 'activeImage' : ''"
+            [ngClass]="imageIsActive ? 'active-image' : ''"
             [src]="selectedImage?.url"
         />
     </div>
@@ -16,7 +16,7 @@
         <li
             *ngFor="let image of images"
             (click)="selectImage(image)"
-            [ngClass]="isSelected(image) ? 'active' : ''"
+            [ngClass]="isSelected(image) ? 'active-text' : ''"
         >
             {{ image.name }}
         </li>
