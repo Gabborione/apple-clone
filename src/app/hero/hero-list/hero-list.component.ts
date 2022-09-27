@@ -1,5 +1,6 @@
 import { KeyValue } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TimeInterval } from 'rxjs';
 
 interface Image {
     name: string;
@@ -11,12 +12,14 @@ interface Image {
     templateUrl: './hero-list.component.html',
     styleUrls: ['./hero-list.component.scss']
 })
-export class HeroListComponent implements OnInit {
+export class HeroListComponent implements OnInit, OnDestroy {
     selectedImage: Image | undefined;
     prevImage: Image | undefined;
 
     videoVisible: boolean = true;
     imageIsActive: boolean = false;
+
+    interval: any;
 
     images: Image[] = [
         {
@@ -45,6 +48,8 @@ export class HeroListComponent implements OnInit {
         this.videoVisible = false;
         this.imageIsActive = false;
 
+        this.resetTimer();
+
         setTimeout(() => {
             this.imageIsActive = true;
         }, 100);
@@ -54,7 +59,29 @@ export class HeroListComponent implements OnInit {
         return this.selectedImage === image;
     }
 
+    autoImage(): number {
+        let current = this.images.indexOf(this.selectedImage!);
+        return current + 1 < this.images.length ? current + 1 : 0;
+    }
+
+    startTimer() {
+        this.interval = setInterval(() => {
+            this.selectImage(this.images[this.autoImage()]);
+        }, 5000);
+    }
+
+    resetTimer() {
+        clearInterval(this.interval);
+        this.startTimer();
+    }
+
     ngOnInit(): void {
         this.selectedImage = this.images[0];
+
+        this.startTimer();
+    }
+
+    ngOnDestroy(): void {
+        clearInterval(this.interval);
     }
 }
