@@ -1,23 +1,24 @@
 <div class="list-container">
     <div class="list-container__left">
-        <video *ngIf="!selectedImage" [muted]="'muted'" autoplay>
+        <video *ngIf="videoVisible" [muted]="'muted'" autoplay>
             <source
                 src="https://www.apple.com/105/media/ww/iphone-14-pro/2022/a3e991f3-071e-454c-b714-1b2319bb97a8/anim/design/large_2x.mp4"
                 type="video/mp4"
             />
         </video>
+        <img class="activeImage" [src]="prevImage?.url" />
         <img
-            *ngIf="selectedImage.values().next().value"
-            [src]="selectedImage.values().next().value"
+            [ngClass]="imageIsActive ? 'activeImage' : ''"
+            [src]="selectedImage?.url"
         />
     </div>
     <ul class="list-container__right">
         <li
-            *ngFor="let image of images | keyvalue; let i = index"
-            (click)="selectImage(image.key)"
-            [ngClass]="{ active: selectedImage?.has(image.key) }"
+            *ngFor="let image of images"
+            (click)="selectImage(image)"
+            [ngClass]="isSelected(image) ? 'active' : ''"
         >
-            {{ image.key.substring(1) }}
+            {{ image.name }}
         </li>
     </ul>
 </div>
