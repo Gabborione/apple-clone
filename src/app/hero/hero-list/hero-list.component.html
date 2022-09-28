@@ -1,7 +1,12 @@
 <div class="second-section">
     <div class="second-section__list-container">
         <div class="list-container__left">
-            <video *ngIf="videoVisible" [muted]="'muted'" autoplay (ended)="vidEnded()">
+            <video
+                *ngIf="videoVisible"
+                [muted]="'muted'"
+                autoplay
+                (ended)="vidEnded()"
+            >
                 <source
                     src="https://www.apple.com/105/media/ww/iphone-14-pro/2022/a3e991f3-071e-454c-b714-1b2319bb97a8/anim/design/large_2x.mp4"
                     type="video/mp4"
@@ -23,8 +28,15 @@
             </li>
         </ul>
     </div>
-    <div class="second-section__text-">
-    
+    <div class="second-section__text">
+        <h2>Fatto per durare.</h2>
+        <br />
+        <h2>
+            Ceramic Shield, più forte di qualsiasi vetro per smartphone.
+            Resistenza all’acqua.
+            <br />
+            Acciaio chirurgico inossidabile. Display da 6,1" e 6,7". In quattro
+            colori Pro.
+        </h2>
     </div>
 </div>
-

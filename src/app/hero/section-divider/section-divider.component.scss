@@ -1,0 +1,76 @@
+.second-section__divider{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1.5px solid hsla(0, 0%, 96%, 50%);
+    overflow: hidden;
+    margin: 7rem auto;
+    padding-top: 2rem;
+
+    > div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        figure{
+            background-image: url(https://www.apple.com/v/iphone-14-pro/a/images/overview/shared/icon_privacy__c8ed751kid4y_large.png);
+            background-repeat: no-repeat;
+            background-size: 456px 208px;
+            background-position: -418px -156px;
+            margin-top: -40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 38px;
+            height: 52px;
+            aspect-ratio: 1;    
+        }    
+
+        .addedAnimation{
+            animation-duration: 2000ms;
+            animation-timing-function: steps(1);
+            animation-delay: 0s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: forwards;
+            animation-name: lock_animation;
+        }
+
+        $n: 48;
+        $x: (100 / $n);
+        $y: (100 - $n * $x) / ($n - 1);
+        $w: 38;
+        $h: 52;
+        $r: 0;
+        $c: 0;
+
+        @keyframes lock_animation {
+            @for $i from 0 to $n {
+            
+                $current-frame: ((($i * $x) + ($i * $y))) * 1%;
+                $next-frame: (((($i + 1) * $x) + ($i + $y))) * 1%;
+
+                @if $i > 0 and $i % 12 == 0{
+                    $r: $r + 1;
+                    $c: 0;
+                }
+              
+                $xPos: -($w * ($c))+px;
+                $yPos: -($h * ($r))+px;
+                $c: $c + 1;
+                
+                #{$current-frame} {
+                    background-position: $xPos $yPos;           
+                }  
+            }
+        }
+    
+        p{
+            width: 50%;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+        }
+    }   
+}

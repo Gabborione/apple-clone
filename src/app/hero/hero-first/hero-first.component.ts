@@ -8,7 +8,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class HeroFirstComponent implements OnInit {
     logoVisible: boolean = false;
     videoVisible: boolean = false;
+    scrollPositionY: number = 0;
 
+    isOverLogo: boolean = false;
     scrollFirst: Number = 0;
 
     constructor() {}
@@ -35,6 +37,10 @@ export class HeroFirstComponent implements OnInit {
         else {
             this.scrollFirst = 0;
         }
+
+        if (window.pageYOffset > 7040) this.isOverLogo = true;
+
+        this.scrollPositionY = window.pageYOffset;
     }
 
     transformFirst() {

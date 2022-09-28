@@ -1,3 +1,10 @@
+.second-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
 .second-section__list-container{
     position: relative;
     width: 980px;
@@ -79,3 +86,17 @@
         opacity: 1;
     }
 }
+
+.second-section__text{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1rem;
+    
+    h2 {
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 2.5rem;
+    }
+}
+
