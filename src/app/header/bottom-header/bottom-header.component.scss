@@ -1,13 +1,31 @@
 .bottom-menu{
+    position: sticky;
+    top:0;
     margin-top: 44px;
     height: 52px;
+    width: 980px;
+    margin-inline: auto;
+    border-bottom: .5px solid hsla(0, 0%, 96%, 30%);
+    background-color: black;
+    z-index: 100;
+    transition: background-color .5s ease-out;
+}
+
+.bottom-menu__submenu{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 980px;
+    width: 100%;
+    max-width: 980px;
+    height: 100%;
     margin-inline: auto;
+}
 
-    border-bottom: .5px solid hsla(0, 0%, 96%, 30%)
+.scrolled{
+    width: 100%;
+    background-color: hsla(240, 2%, 8%, 80%);
+    backdrop-filter: blur(10px);
+    transition: background-color .5s ease-in;
 }
 
 .bottom-menu__title{

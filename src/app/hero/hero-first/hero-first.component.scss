@@ -13,6 +13,8 @@
     align-items: center;
     -webkit-box-shadow: inset 0px -20px 36px 10px rgba(0,0,0,0.53); 
     box-shadow: inset 0px -50px 36px 10px rgba(0,0,0,0.8);
+    animation: zoom;
+    animation-duration: 3s;
 }
 
 .hero__video{
@@ -20,14 +22,13 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    animation: zoom;
-    animation-duration: 3s;
 }
 
 @keyframes zoom {
     0%   {width: 120vw}
-    100% {width: 1680px}
+    100% {width: 100vw;}
 }
 
 .hero__logo{
