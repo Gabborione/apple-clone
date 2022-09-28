@@ -55,6 +55,10 @@ export class HeroListComponent implements OnInit, OnDestroy {
         }, 100);
     }
 
+    vidEnded() {
+        this.startTimer();
+    }
+
     isSelected(image?: Image): boolean {
         return this.selectedImage === image;
     }
@@ -67,7 +71,7 @@ export class HeroListComponent implements OnInit, OnDestroy {
     startTimer() {
         this.interval = setInterval(() => {
             this.selectImage(this.images[this.autoImage()]);
-        }, 5000);
+        }, 3000);
     }
 
     resetTimer() {
@@ -77,8 +81,6 @@ export class HeroListComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.selectedImage = this.images[0];
-
-        this.startTimer();
     }
 
     ngOnDestroy(): void {
