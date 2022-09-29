@@ -1,5 +1,5 @@
 .second-section__divider{
-    width: 80%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,6 +14,7 @@
         align-items: center;
 
         figure{
+            visibility: hidden;
             background-image: url(https://www.apple.com/v/iphone-14-pro/a/images/overview/shared/icon_privacy__c8ed751kid4y_large.png);
             background-repeat: no-repeat;
             background-size: 456px 208px;
@@ -28,6 +29,7 @@
         }    
 
         .addedAnimation{
+            visibility: visible;
             animation-duration: 2000ms;
             animation-timing-function: steps(1);
             animation-delay: 0s;
@@ -67,7 +69,7 @@
         }
     
         p{
-            width: 50%;
+            width: 45%;
             font-size: 1.2rem;
             font-weight: 500;
             line-height: 1.5rem;

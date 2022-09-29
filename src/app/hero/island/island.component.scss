@@ -1,0 +1,25 @@
+.island-container{
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    max-width: 980px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 50rem;
+
+
+    h2{
+        font-size: 7rem;
+        line-height: 8rem;
+    }
+}
+
+.island{
+    display: inline-block;
+    min-width: 50px;
+    max-width: 136px;
+    height: 3.75rem;
+    border: 0.82rem solid #d5d5dd;
+    opacity: 1;
+    border-radius: 2.64rem;
+}
