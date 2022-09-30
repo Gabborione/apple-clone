@@ -18,7 +18,16 @@ export class IslandComponent implements OnInit {
     innerHeight: number = 0;
     distance: number = 0;
     scrollY: number = 0;
-    tempScrollPos: number = 0;
+    startScrollPos: number = 0;
+    finalScrollPos: number = 0;
+    qWidth: number = 0;
+    mWidth: number = 0;
+    qZoom: number = 0;
+    mZoom: number = 0;
+    qPosition: number = 0;
+    mPosition: number = 0;
+    scaleFactor: number = 1;
+    positionFactor: number = 0;
 
     constructor() {}
 
@@ -37,21 +46,27 @@ export class IslandComponent implements OnInit {
     }
 
     transformText() {
-        let scaleFactor: number = 1;
-
         // scaleFactor = this.distance / 300;
         // console.log(scaleFactor);
 
         // if (scaleFactor <= 1) {
         //     scaleFactor = 1;
         // }
-        if (this.tempScrollPos !== 0) {
+
+        this.scaleFactor = (this.scrollY - this.qZoom) / this.mZoom;
+        this.positionFactor = (this.scrollY - this.qPosition) / this.mPosition;
+        console.log('Scale: ' + this.scaleFactor);
+
+        if (
+            this.startScrollPos !== 0 &&
+            this.distance <= this.innerHeight / 1.5
+        ) {
             return {
-                transform: `matrix(1,0,0,1,0,0)`
+                transform: `matrix(${this.scaleFactor},0,0,${this.scaleFactor},${this.positionFactor},${this.positionFactor})`
             };
         } else {
             return {
-                transform: `matrix(2,0,0,2,245,255)`
+                transform: `matrix(1,0,0,1,0,0)`
             };
         }
 
@@ -63,14 +78,37 @@ export class IslandComponent implements OnInit {
     transformIsland() {
         this.distance = this.island?.nativeElement.getBoundingClientRect().top!;
 
-        if (this.tempScrollPos === 0 && this.distance <= this.innerHeight / 2) {
-            this.tempScrollPos =
-                this.scrollY - this.innerHeight / 2 + this.distance;
+        if (
+            this.startScrollPos === 0 &&
+            this.distance <= this.innerHeight / 1.5
+        ) {
+            this.startScrollPos =
+                this.scrollY - this.innerHeight / 1.5 + this.distance;
+
+            this.finalScrollPos = this.startScrollPos + this.innerHeight / 1.5;
+            this.mWidth =
+                (this.finalScrollPos - this.startScrollPos) / (136 - 50);
+            this.qWidth = this.startScrollPos - this.mWidth * 50;
+
+            this.mZoom = (this.finalScrollPos - this.startScrollPos) / (2 - 1);
+            this.qZoom = this.startScrollPos - this.mZoom * 1;
+
+            this.mPosition =
+                (this.finalScrollPos - this.startScrollPos) / (245 - 0);
+            this.qPosition = this.startScrollPos - this.mZoom * 0;
         }
 
-        if (this.tempScrollPos !== 0) {
+        if (
+            this.startScrollPos !== 0 &&
+            this.distance <= this.innerHeight / 1.5
+        ) {
+            console.log('Final: ' + this.finalScrollPos);
+            console.log('Start: ' + this.startScrollPos);
+            console.log('Actual: ' + this.scrollY);
+            console.log('q: ' + this.qWidth);
+
             return {
-                width: (this.scrollY - this.tempScrollPos) * 0.8 + 'px'
+                width: (this.scrollY - this.qWidth) / this.mWidth + 'px'
             };
         } else {
             return {
