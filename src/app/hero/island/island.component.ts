@@ -46,13 +46,6 @@ export class IslandComponent implements OnInit {
     }
 
     transformText() {
-        // scaleFactor = this.distance / 300;
-        // console.log(scaleFactor);
-
-        // if (scaleFactor <= 1) {
-        //     scaleFactor = 1;
-        // }
-
         this.scaleFactor = (this.scrollY - this.qZoom) / this.mZoom;
         this.positionFactor = (this.scrollY - this.qPosition) / this.mPosition;
         console.log('Scale: ' + this.scaleFactor);
@@ -62,7 +55,9 @@ export class IslandComponent implements OnInit {
             this.distance <= this.innerHeight / 1.5
         ) {
             return {
-                transform: `matrix(${this.scaleFactor},0,0,${this.scaleFactor},${this.positionFactor},${this.positionFactor})`
+                transform: `matrix(${this.scaleFactor},0,0,${
+                    this.scaleFactor
+                },${this.positionFactor / 2},${this.positionFactor})`
             };
         } else {
             return {
@@ -94,8 +89,8 @@ export class IslandComponent implements OnInit {
             this.qZoom = this.startScrollPos - this.mZoom * 1;
 
             this.mPosition =
-                (this.finalScrollPos - this.startScrollPos) / (245 - 0);
-            this.qPosition = this.startScrollPos - this.mZoom * 0;
+                (this.finalScrollPos - this.startScrollPos) / (650 - 1);
+            this.qPosition = this.startScrollPos - this.mPosition * 1;
         }
 
         if (
