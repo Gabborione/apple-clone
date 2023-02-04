@@ -14,7 +14,7 @@ export class BottomHeaderComponent implements OnInit {
 
     @HostListener('window:scroll', ['$event'])
     scrollMovement(event: Event) {
-        if (window.pageYOffset > 10) this.isScrolled = true;
+        if (window.pageYOffset > 5) this.isScrolled = true;
         else {
             this.isScrolled = false;
         }

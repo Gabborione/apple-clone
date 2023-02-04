@@ -1,7 +1,7 @@
-.top-menu{
+.top-menu {
     width: 100%;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     background-color: hsla(240, 2%, 9%, 0.85);
     height: 44px;
@@ -13,27 +13,26 @@
     z-index: 100;
 }
 
-.top-menu__item{
+.top-menu__item {
     padding-inline: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 
-    img{      
-        top:0px;
+    img {
+        top: 0px;
     }
 
-    &:hover{
+    &:hover {
         color: white;
         transition: all 0.2s;
     }
-    
 }
 
-.top-menu__search{
-    img{
+.top-menu__search {
+    img {
         position: relative;
-        top:22px;
+        top: 22px;
     }
 }

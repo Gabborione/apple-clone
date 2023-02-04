@@ -1,17 +1,16 @@
-.bottom-menu{
+.bottom-menu {
     position: sticky;
-    top:0;
-    margin-top: 44px;
+    top: 44px;
     height: 52px;
     max-width: 980px;
     margin-inline: auto;
-    border-bottom: .5px solid hsla(0, 0%, 96%, 30%);
+    border-bottom: 0.5px solid hsla(0, 0%, 96%, 30%);
     background-color: black;
     z-index: 100;
-    transition: background-color .5s ease-out;
+    transition: background-color 0.5s ease-out;
 }
 
-.bottom-menu__submenu{
+.bottom-menu__submenu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,56 +20,60 @@
     margin-inline: auto;
 }
 
-.scrolled{
-    width: 100%;
+.scrolled {
+    top:0;
+    max-width: 100vw;
     background-color: hsla(240, 2%, 8%, 80%);
     backdrop-filter: blur(10px);
-    transition: background-color .5s ease-in;
+    transition: background-color 0.5s ease-in;
 }
 
-.bottom-menu__title{
+.bottom-menu__title {
     font-size: 1.3rem;
     font-weight: 500;
     letter-spacing: 0px;
+    color: #fff;
     cursor: pointer;
 }
 
-.bottom-menu__list{
+.bottom-menu__list {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.4rem;
 
-    li {
-        a{
-            &:hover{
+    &-element {
+        a {
+            &:hover {
                 color: hsl(210, 100%, 45%);
             }
         }
     }
 }
 
-.button{
+.button {
     background-color: hsl(210, 100%, 45%);
-    padding: .15em .8em;
+    padding: 0.15em 0.8em;
     border-radius: 50px;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
         background-color: hsl(210, 100%, 50%);
     }
 
-    a{
+    a {
         color: white;
-        &:hover{
+        &:hover {
             color: white !important;
         }
     }
 }
 
-.selected{
-    a{
-        color: hsl(240, 4%, 50%);
-        cursor: default;
+.selected {
+    color: hsl(240, 4%, 50%);
+    cursor: default;
+
+    &:hover {
+        color: hsl(240, 4%, 50%) !important;
     }
 }
